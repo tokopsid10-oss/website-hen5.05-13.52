@@ -1,0 +1,74 @@
+/* PS4 HEN Portal - logo style */
+:root{
+  --logo-blue:#008cff;
+  --logo-cyan:#35e7ff;
+  --logo-glow:#008cff99;
+}
+
+/* Header / brand */
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:120px;
+  margin-bottom:20px;
+}
+
+.brand-logo{
+  width:min(520px,92vw);
+  aspect-ratio:1/1;
+  background-image:url("logo.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-radius:18px;
+  filter:
+    drop-shadow(0 0 8px var(--logo-blue))
+    drop-shadow(0 0 24px var(--logo-glow));
+  transition:transform .25s ease, filter .25s ease;
+}
+
+.brand-logo:hover{
+  transform:scale(1.02);
+  filter:
+    drop-shadow(0 0 12px var(--logo-cyan))
+    drop-shadow(0 0 34px var(--logo-glow));
+}
+
+/* Alternative compact header logo */
+.brand.compact{
+  justify-content:flex-start;
+  min-height:80px;
+}
+
+.brand.compact .brand-logo{
+  width:280px;
+  max-width:75vw;
+}
+
+/* If you want the logo as an image instead of a CSS background:
+   <div class="brand"><img class="brand-logo-img" src="logo.png"></div>
+*/
+.brand-logo-img{
+  display:block;
+  width:min(520px,92vw);
+  height:auto;
+  border-radius:18px;
+  filter:
+    drop-shadow(0 0 8px var(--logo-blue))
+    drop-shadow(0 0 24px var(--logo-glow));
+}
+
+/* PS4-style page background */
+body{
+  background:
+    radial-gradient(circle at 18% 15%,#063c70 0,transparent 34%),
+    radial-gradient(circle at 85% 85%,#101e72 0,transparent 38%),
+    linear-gradient(145deg,#02050a,#061222 55%,#02050b);
+}
+
+@media(max-width:600px){
+  .brand{min-height:95px}
+  .brand-logo{width:min(360px,94vw)}
+  .brand.compact .brand-logo{width:230px}
+}
